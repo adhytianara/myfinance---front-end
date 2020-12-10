@@ -1,17 +1,7 @@
-stages:
-  - test
-  - staging
+image: ruby:2.3.0
 
-test:
-  image: node:latest
-  stage: test
-  script:
-    - npm install
-    - npm run test
-  only:
-    - master
-  tags:
-    - docker
+stages:
+  - staging
 
 staging:
   stage: staging
