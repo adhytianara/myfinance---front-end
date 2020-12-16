@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Navbar() {
+function Navbar(props) {
     return (
         <nav>
             <h2>Finance Calculator</h2>
             <ul>
-                <li><a href="/"/>Home</li>
-                <li><a href="/function1">Function 1</a></li>
-                <li><a href="/function2">Function 2</a></li>
-                <li><a href="/function3">Function 3</a></li>
-                <li><a href="/function4">Function 4</a></li>
+                <li><Link to="/"> Home </Link></li>
+                <li><Link to="/internal"> IRR </Link></li>
+                <li><Link to="/functiondua"> Function 2 </Link></li>
+                <li><Link to="/functiontiga"> Function 3 </Link></li>
+                <li><Link to="/functionempat"> Function 4 </Link></li>
             </ul>
         </nav>
     )

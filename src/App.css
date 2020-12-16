@@ -4,10 +4,11 @@
 }
 
 nav {
-  background-color: lightblue;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 25px 40px;
+  box-shadow: 2px 5px 5px #ecf0f1;
 }
 
 nav ul li {
