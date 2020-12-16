@@ -2,9 +2,9 @@ import "./App.css";
 import { Fragment, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import InternalRateReturn from "./components/InternalRateReturn";
 import FunctionDua from "./components/FunctionDua";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import InternalRateReturn from "./components/InternalRateReturn";
 
 function App() {
   return (
