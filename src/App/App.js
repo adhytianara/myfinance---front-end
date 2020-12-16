@@ -1,10 +1,10 @@
 import "./App.css";
 import { Fragment, useState } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import FunctionDua from "./components/FunctionDua";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "../components/Home/Home";
+import FunctionDua from "../components/FunctionDua/FunctionDua";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import InternalRateReturn from "./components/InternalRateReturn";
+import InternalRateReturn from "../components/InternalRateReturn/InternalRateReturn";
 
 function App() {
   return (
