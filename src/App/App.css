@@ -1,6 +1,13 @@
+@font-face {
+  font-family: Dosis;
+  src: url("./fonts/Dosis-Regular.ttf") format('truetype');
+  font-weight: 400;
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: Dosis;
 }
 
 nav {
@@ -186,4 +193,29 @@ li.line {
   text-decoration: line-through;
   color: #ccc;
   /* font-weight: 700; */
+}
+
+p {
+  margin-left: 50px;
+  margin-bottom: 0px !important;
+  font-weight: bold;
+  color: #2EBB88;
+}
+
+.main-logo {
+  margin-left: 30px;
+}
+
+h4 {
+  position: absolute;
+  margin-left: 100px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-weight: bolder;
+  color: #2EBB88;
+}
+
+.ronaldi {
+  margin-right: 50px;
 }

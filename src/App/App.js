@@ -1,19 +1,19 @@
 import "./App.css";
 import { Fragment, useState } from "react";
-import Navbar from "./components/Navbar/Navbar";
+import Navbarku from "./components/Navbar/Navbarku";
 import Home from "../components/Home/Home";
 import FunctionDua from "../components/FunctionDua/FunctionDua";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import InternalRateReturn from "../components/InternalRateReturn/InternalRateReturn";
+import NetPresentValue from "../components/NetPresentValue/NetPresentValue";
 
 function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <Navbar/>
+        <Navbarku/>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/internal" component={InternalRateReturn} />
+          <Route path="/netpresentvalue" component={NetPresentValue} />
           <Route path="/functiondua" component={FunctionDua} />
         </Switch>
       </BrowserRouter>
