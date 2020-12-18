@@ -1,15 +1,12 @@
-import React from "react";
+import "./style.css"
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
-function later(delay) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, delay);
-  });
-}
 
 function InternalRateReturn() {
   // register berfungsi untuk mendaftarkan form ke hook
   const { register, handleSubmit, errors, formState, reset } = useForm();
+
+  const [npv, setNvp] = useState(0)
 
   function fetchInternalRateReturn(opts) {
     fetch(
@@ -29,6 +26,8 @@ function InternalRateReturn() {
       })
       .then(function (data) {
         console.log(data);
+        setNvp(data['body'])
+        console.log(data['body']);
       });
   }
 
@@ -49,6 +48,7 @@ function InternalRateReturn() {
     
     console.log(JSON.stringify({ body: JSON.stringify(data) }));
     fetchInternalRateReturn(data);
+
   };
 
   return (
@@ -80,9 +80,10 @@ function InternalRateReturn() {
         <label> Project Cost *</label>
         <input type="number" name="project_cost" ref={register()} />
 
-        <button type="button" onClick={handleSubmit(onSubmit)}>
+        <button className="submit-button" type="button" onClick={handleSubmit(onSubmit)}>
           Check my Business
         </button>
+        <h1>{npv}</h1>
       </form>
     </div>
   );
