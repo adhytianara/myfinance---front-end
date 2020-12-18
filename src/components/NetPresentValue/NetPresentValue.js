@@ -2,12 +2,16 @@ import "./style.css";
 import React, { useState } from "react";
 import { Navbar, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Profit from "../Profit/Profit"
+import Loss from "../Loss/Loss"
+
 
 function InternalRateReturn() {
   // register berfungsi untuk mendaftarkan form ke hook
   const { register, handleSubmit, errors, formState, reset } = useForm();
 
   const [npv, setNvp] = useState(0);
+  const [profit, setProfit] = useState(null);
 
   function fetchInternalRateReturn(opts) {
     fetch(
@@ -27,9 +31,19 @@ function InternalRateReturn() {
       })
       .then(function (data) {
         console.log(data);
+        console.log(opts['project_cost']);
+        countProfit(opts['project_cost'], data["body"]);
         setNvp(data["body"]);
         console.log(data["body"]);
       });
+  }
+
+  function countProfit(cost, npv) {
+    if ((npv - cost) > 0) {
+      setProfit(<Profit/>)
+    } else {
+      setProfit(<Loss/>)
+    }
   }
 
   const onSubmit = async (data) => {
@@ -136,6 +150,7 @@ function InternalRateReturn() {
         </Row>
 
         <h1 className="result">Your NPV : {npv}</h1>
+        <h1 className="result">Good or Not? {profit}</h1>
       </form>
     </div>
   );
