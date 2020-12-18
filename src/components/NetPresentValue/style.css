@@ -1,3 +1,9 @@
 .submit-button {
     margin-bottom: 100px;
 }
+
+.calculate {
+    text-align: center;
+    font-size: 20px;
+    padding-right: 40px;
+}

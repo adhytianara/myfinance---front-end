@@ -68,6 +68,7 @@ function InternalRateReturn() {
   return (
     <div>
       <h1> Is your Business Good or Not? </h1>
+      <p className="calculate">Calculate With Net Present Value (NPV)</p>
       <form>
         <h2>INCOME</h2>
         <Row className="justify-content-center">
