@@ -1,10 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
-import { Navbar, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Profit from "../Profit/Profit"
-import Loss from "../Loss/Loss"
-
+import Profit from "../Profit/Profit";
+import Loss from "../Loss/Loss";
 
 function InternalRateReturn() {
   // register berfungsi untuk mendaftarkan form ke hook
@@ -31,18 +30,22 @@ function InternalRateReturn() {
       })
       .then(function (data) {
         console.log(data);
-        console.log(opts['project_cost']);
-        countProfit(opts['project_cost'], data["body"]);
-        setNvp(data["body"]);
-        console.log(data["body"]);
+        console.log(opts["project_cost"]);
+        if (data["body"] === null) {
+          setProfit("Please Fill in All Forms");
+        } else {
+          countProfit(opts["project_cost"], data["body"]);
+          setNvp(data["body"]);
+          console.log(data["body"]);
+        }
       });
   }
 
   function countProfit(cost, npv) {
-    if ((npv - cost) > 0) {
-      setProfit(<Profit/>)
+    if (npv - cost > 0) {
+      setProfit(<Profit />);
     } else {
-      setProfit(<Loss/>)
+      setProfit(<Loss />);
     }
   }
 
@@ -151,7 +154,7 @@ function InternalRateReturn() {
         </Row>
 
         <h1 className="result">Your NPV : {npv}</h1>
-        <h1 className="result">Good or Not? {profit}</h1>
+        <h1 className="result">Good or Not? <br></br><br></br>{profit}</h1>
       </form>
     </div>
   );

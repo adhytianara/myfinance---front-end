@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Profit() {
   return (
     <div>
-      <p className="answer">Hei! We Think Your Business is Good</p>
+      <p>Hei! We Think Your Business is Good</p>
       <Image src={profitLogo} fluid className="profit-logo" />
     </div>
   );
