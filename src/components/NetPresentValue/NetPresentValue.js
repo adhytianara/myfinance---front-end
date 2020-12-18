@@ -7,7 +7,7 @@ import Loss from "../Loss/Loss";
 
 function InternalRateReturn() {
   // register berfungsi untuk mendaftarkan form ke hook
-  const { register, handleSubmit, errors, formState, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const [npv, setNvp] = useState(0);
   const [profit, setProfit] = useState(null);

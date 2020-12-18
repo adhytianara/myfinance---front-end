@@ -1,8 +1,7 @@
 import React from "react";
-import { Image, Row } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import profitLogo from "./img/profit.png";
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 function Profit() {
   return (

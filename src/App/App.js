@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import Navbarku from "./components/Navbar/Navbarku";
 import Home from "../components/Home/Home";
 import FunctionDua from "../components/FunctionDua/FunctionDua";
