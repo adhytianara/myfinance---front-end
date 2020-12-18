@@ -1,0 +1,24 @@
+.home-logo {
+  max-width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.link-container {
+    border-width: 2px;
+    background-color: #79E7BA;
+    text-align: center;
+    padding: 20px !important;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.link-dalam {
+    margin-left: 0;
+    opacity: 100%;
+    color: #3A3768;
+    
+}
