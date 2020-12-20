@@ -33,7 +33,7 @@ function Navbarku(props) {
           <Link to="/functiontiga"><p>Aji</p></Link>
         </Navbar.Text>
         <Navbar.Text>
-          <Link to="/functionempat"><p className="ronaldi">Ronaldi</p></Link>
+          <Link to="/wacc"><p>WACC</p></Link>
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
