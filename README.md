@@ -1,3 +1,11 @@
+# Finance Calculator
+
+Developed by **Group 21**:
+- Ari Angga Nugraha (1806205086)
+- Aji Inisti Udma Wijaya (1806141126)
+- Ronaldi Tjaidianto (1806141441)
+- Muhamad Adhytia Wana Putra Rahmadhan (1806141321)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
