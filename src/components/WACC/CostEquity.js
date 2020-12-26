@@ -8,19 +8,19 @@ function CostEquity(props) {
             <ProgressBar position={0} />
             <Row className="justify-content-center">
                 <div className="form-container">
-                    <label>Risk-free Rate of Return</label>
+                    <label>Risk-free Rate of Return<br /> (in percentage)</label>
                     <br></br>
-                    <input type="number" name="rf"/>
+                    <input type="number" name="rf" step="0.01" min="0" max="1" value={props.getState('rf')} onChange={props.handleChange}/>
                 </div>
                 <div className="form-container">
-                    <label>Beta</label>
+                    <label>Beta<br /> (in percentage)</label>
                     <br></br>
-                    <input type="number" name="beta"/>
+                    <input type="number" name="beta" step="0.01" min="0" max="1" value={props.getState('beta')} onChange={props.handleChange}/>
                 </div>
                 <div className="form-container">
-                    <label>Market Rate of Return</label>
+                    <label>Market Rate of Return<br /> (in percentage)</label>
                     <br></br>
-                    <input type="number" name="rm"/>
+                    <input type="number" name="rm" step="0.01" min="0" max="1" value={props.getState('rm')} onChange={props.handleChange}/>
                 </div>
             </Row>
             <Row className="justify-content-center">
