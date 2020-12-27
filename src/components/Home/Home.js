@@ -19,8 +19,8 @@ function Home() {
         <Link to="/#" className="link-container">
           <p className="link-dalam">Aji</p>
         </Link>
-        <Link to="/#" className="link-container">
-          <p className="link-dalam">Ronaldi</p>
+        <Link to="/wacc" className="link-container">
+          <p className="link-dalam">WACC</p>
         </Link>
       </Row>
     </div>

@@ -30,10 +30,10 @@ function Navbarku(props) {
           <Link to="/functiondua"><p>Adit</p></Link>
         </Navbar.Text>
         <Navbar.Text>
-          <Link to="/functiontiga"><p>Aji</p></Link>
+          <Link to="/roi"><p>ROI</p></Link>
         </Navbar.Text>
         <Navbar.Text>
-          <Link to="/functionempat"><p className="ronaldi">Ronaldi</p></Link>
+          <Link to="/wacc"><p>WACC</p></Link>
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
