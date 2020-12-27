@@ -16,7 +16,7 @@ function Navbarku(props) {
           height="50"
           className="d-inline-block align-top main-logo"
         />{" "}
-        <h4>Financial Calculator</h4>
+        <h4>Math & Financial Calculator</h4>
         </Row>
       </Navbar.Brand>
       <Navbar.Collapse className="justify-content-end">
@@ -27,7 +27,7 @@ function Navbarku(props) {
           <Link to="/netpresentvalue"><p>NPV</p></Link>
         </Navbar.Text>
         <Navbar.Text>
-          <Link to="/functiondua"><p>Adit</p></Link>
+          <Link to="/system-of-linear-equations"><p>SLE</p></Link>
         </Navbar.Text>
         <Navbar.Text>
           <Link to="/roi"><p>ROI</p></Link>
