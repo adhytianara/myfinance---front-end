@@ -16,8 +16,8 @@ function Home() {
         <Link to="/#" className="link-container">
           <p className="link-dalam">Adit</p>
         </Link>
-        <Link to="/#" className="link-container">
-          <p className="link-dalam">Aji</p>
+        <Link to="/roi" className="link-container">
+          <p className="link-dalam">ROI</p>
         </Link>
         <Link to="/wacc" className="link-container">
           <p className="link-dalam">WACC</p>
