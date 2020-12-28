@@ -3,6 +3,17 @@ import { Row } from "react-bootstrap";
 import ProgressBar from './ProgressBar';
 
 function CostDebt(props) {
+
+    function fetchDebtCost(expense, total, taxRate) {
+        fetch('https://6n9rztumeg.execute-api.us-east-1.amazonaws.com/test/debt-input?expense='+expense+'&total='+total +'&tax='+taxRate)
+            .then(response => {
+                return response.json();
+            })
+            .then(rslt => {
+                props.debtSetter(rslt);
+            })
+    }
+
     return (
         <div>
             <ProgressBar position={1} />
@@ -24,7 +35,9 @@ function CostDebt(props) {
                 </div>
             </Row>
             <Row className="justify-content-center">
-                <button onClick={props.next}>Next</button>
+                <button onClick={() => {fetchDebtCost(props.getState('expense'),props.getState('total'),props.getState('taxRate')); props.next();}}>
+                    Next
+                </button>
             </Row>
         </div>
     );

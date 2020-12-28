@@ -15,11 +15,13 @@ function WeightCalculation(props) {
                 <div className="form-container">
                     <label>Total debt<br /></label>
                     <br></br>
-                    <input type="number" name="total" value={props.getState('total')} disabled="true"/>
+                    <input type="number" name="total" value={props.getState('total')} disabled={true}/>
                 </div>
             </Row>
             <Row className="justify-content-center">
-                <button onClick={props.next}>Next</button>
+                <button onClick={() => {props.resultSetter(Number(props.getState('marketCap')))(Number(props.getState('total'))); props.next();}}>
+                    Next
+                </button>
             </Row>
         </div>
     );
