@@ -1,5 +1,5 @@
 import "./style.css";
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Profit from "../Profit/Profit";
@@ -11,6 +11,28 @@ function InternalRateReturn() {
 
   const [npv, setNvp] = useState(0);
   const [profit, setProfit] = useState(null);
+
+  const [{isLoading, loadingText}, dispatch] = useReducer(reducer, {
+    isLoading: false,
+    loadingText: "Your Calculating is "
+  });
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case "loading":
+        return {
+          isLoading: !state.isLoading,
+          loadingText: state.loadingText + "Loading"
+        };
+      case "notloading":
+        return {
+          isLoading: !state.isLoading,
+          loadingText: "Finish, Please Scroll Down"
+        };
+      default :
+        return state;
+    }
+  }
 
   function fetchInternalRateReturn(opts) {
     fetch(
@@ -42,6 +64,7 @@ function InternalRateReturn() {
   }
 
   function countProfit(cost, npv) {
+    dispatch({ type: "notloading", loadingText: "Finish . . ."})
     if (npv - cost > 0) {
       setProfit(<Profit />);
     } else {
@@ -51,6 +74,7 @@ function InternalRateReturn() {
 
   const onSubmit = async (data) => {
     console.log(data);
+    dispatch({ type: "loading", loadingText: "Loading . . ."})
     data["income_1"] = parseFloat(data["income_1"]);
     data["income_2"] = parseFloat(data["income_2"]);
     data["income_3"] = parseFloat(data["income_3"]);
@@ -154,6 +178,7 @@ function InternalRateReturn() {
         </Row>
 
         <h1 className="result">Your NPV : {npv}</h1>
+        <h1>{loadingText}</h1>
         <h1 className="result">Good or Not? <br></br><br></br>{profit}</h1>
       </form>
     </div>
