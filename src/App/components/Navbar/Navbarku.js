@@ -27,13 +27,13 @@ function Navbarku(props) {
           <Link to="/netpresentvalue"><p>NPV</p></Link>
         </Navbar.Text>
         <Navbar.Text>
-          <Link to="/system-of-linear-equations"><p>SLE</p></Link>
-        </Navbar.Text>
-        <Navbar.Text>
           <Link to="/roi"><p>ROI</p></Link>
         </Navbar.Text>
         <Navbar.Text>
           <Link to="/wacc"><p>WACC</p></Link>
+        </Navbar.Text>
+        <Navbar.Text>
+          <Link to="/system-of-linear-equations"><p>SLE</p></Link>
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
