@@ -36,13 +36,13 @@ function InternalRateReturn() {
 
   function fetchInternalRateReturn(opts) {
     fetch(
-      "https://839v19j4il.execute-api.us-east-1.amazonaws.com/production/my-haskell-lambda",
+      "https://joq5a3kgek.execute-api.us-east-1.amazonaws.com/production/my-haskell-lambda",
       {
         method: "post",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-          "x-api-key": "KYI4RhklZf5BZvassa6Fz1rl0fmXJ7H235arS7do",
+          "x-api-key": "obxQYk7GGVaDb68YgrtUh1YJAskJinwj9WTYmxUI",
         },
         body: JSON.stringify({ body: JSON.stringify(opts) }),
       }
