@@ -7,15 +7,12 @@ function SystemofLinearEquations() {
     const { register, handleSubmit } = useForm();
     const [answer, setAnswer] = useState(null);
 
-    function fetchInternalRateReturn(param) {
-        console.log(param)
+    function fetchAnswer(param) {
         fetch("https://n3bk4fza9g.execute-api.us-east-1.amazonaws.com/default/pemfung2020-backend-adhytia?" + param)
             .then(response => {
-                console.log(response)
                 return response.text();
             })
             .then(result => {
-                console.log(result);
                 setAnswer(result);
             })
             .catch(e => {
@@ -25,8 +22,7 @@ function SystemofLinearEquations() {
     
     const onSubmit = async (data) => {
         var param = `x1=${data["x1"]}&y1=${data["y1"]}&z1=${data["z1"]}&r1=${data["r1"]}&x2=${data["x2"]}&y2=${data["y2"]}&z2=${data["z2"]}&r2=${data["r2"]}&x3=${data["x3"]}&y3=${data["y3"]}&z3=${data["z3"]}&r3=${data["r3"]}`;
-        console.log("param " + param);
-        fetchInternalRateReturn(param);
+        fetchAnswer(param);
     };
     return (
         <div>
