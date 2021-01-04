@@ -1,4 +1,5 @@
 # Finance Calculator
+[![pipeline status](https://gitlab.cs.ui.ac.id/aji.inisti/tugas-kelompok-pemrograman-fungsional/badges/master/pipeline.svg)](https://gitlab.cs.ui.ac.id/aji.inisti/tugas-kelompok-pemrograman-fungsional/commits/master)
 
 Developed by **Group 21**:
 - Ari Angga Nugraha (1806205086)
