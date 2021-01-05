@@ -29,13 +29,13 @@ function CostDebt(props) {
                     <input type="number" name="total" min="0" value={props.getState('total')} onChange={props.handleChange}/>
                 </div>
                 <div className="form-container">
-                    <label>Tax rate<br /> (in percentage)</label>
+                    <label>Tax rate<br /> (in percentage: 1-100%)</label>
                     <br></br>
-                    <input type="number" name="taxRate" step="0.01" min="0" max="1" value={props.getState('taxRate')} onChange={props.handleChange}/>
+                    <input type="number" name="taxRate" step="0.1" min="0" max="100" value={props.getState('taxRate')} onChange={props.handleChange}/>
                 </div>
             </Row>
             <Row className="justify-content-center">
-                <button onClick={() => {fetchDebtCost(props.getState('expense'),props.getState('total'),props.getState('taxRate')); props.next();}}>
+                <button onClick={() => {fetchDebtCost(props.getState('expense'),props.getState('total'),props.getState('taxRate')/100); props.next();}}>
                     Next
                 </button>
             </Row>

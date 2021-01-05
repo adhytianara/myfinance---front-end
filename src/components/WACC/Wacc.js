@@ -7,11 +7,10 @@ import WeightCalculation from './WeightCalculation';
 import WaccResult from './WaccResult';
 
 function Wacc() {
-    const waccCurry = equityCost => debtCost => marketCap => totalDebt => 100 * (equityCost * (marketCap/(marketCap+totalDebt))  + debtCost * (totalDebt/(marketCap+totalDebt)));
-    const [waccEquityCost, setWaccEquity] = useState(null);
-    const [waccDebtCost, setWaccDebt] = useState(null);
-    const [waccMarketCap, setWaccMCap] = useState(null);
-    const [wacctotalDebt, setWaccTotalDebt] = useState(null);
+    const waccCurry = equityCost => debtCost => marketCap => totalDebt => equityCost * (marketCap/(marketCap+totalDebt))  + debtCost * (totalDebt/(marketCap+totalDebt));
+    const [waccEquityDone, setWaccEquity] = useState(waccCurry);
+    const [waccDebtDone, setWaccDebt] = useState(waccEquityDone);
+    const [waccResult, setWaccResult] = useState(0);
 
     return (
         <div>
@@ -20,10 +19,10 @@ function Wacc() {
             <br/>
             <div>
                 <Activities>
-                    <Subactivity component={CostEquity} equitySetter={val => setWaccEquity(val)} />
-                    <Subactivity component={CostDebt} debtSetter={val => setWaccDebt(val)} />
-                    <Subactivity component={WeightCalculation} resultSetter={marketCap => totalDebt => {setWaccMCap(marketCap); setWaccTotalDebt(totalDebt);}} />
-                    <Subactivity component={WaccResult} result={waccCurry(waccEquityCost)(waccDebtCost)(waccMarketCap)(wacctotalDebt)} />
+                    <Subactivity component={CostEquity} equitySetter={val => setWaccEquity(() => waccCurry(val))} />
+                    <Subactivity component={CostDebt} debtSetter={val => setWaccDebt(() => waccEquityDone(val))} />
+                    <Subactivity component={WeightCalculation} resultSetter={marketCap => totalDebt => setWaccResult(() => waccDebtDone(marketCap)(totalDebt))} />
+                    <Subactivity component={WaccResult} result={waccResult} />
                 </Activities>
             </div>
         </div>

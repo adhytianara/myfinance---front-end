@@ -20,23 +20,23 @@ function CostEquity(props) {
             <ProgressBar position={0} />
             <Row className="justify-content-center">
                 <div className="form-container">
-                    <label>Risk-free Rate of Return<br /> (in percentage)</label>
+                    <label>Risk-free Rate of Return<br /> (in percentage: 1-100%)</label>
                     <br></br>
-                    <input type="number" name="rf" step="0.01" min="0" max="1" value={props.getState('rf')} onChange={props.handleChange}/>
+                    <input type="number" name="rf" step="0.1" min="0" max="100" value={props.getState('rf')} onChange={props.handleChange}/>
                 </div>
                 <div className="form-container">
-                    <label>Beta<br /> (in percentage)</label>
+                    <label>Beta<br /> (in percentage: 1-100%)</label>
                     <br></br>
-                    <input type="number" name="beta" step="0.01" min="0" max="1" value={props.getState('beta')} onChange={props.handleChange}/>
+                    <input type="number" name="beta" step="0.1" min="0" max="100" value={props.getState('beta')} onChange={props.handleChange}/>
                 </div>
                 <div className="form-container">
-                    <label>Market Rate of Return<br /> (in percentage)</label>
+                    <label>Market Rate of Return<br /> (in percentage: 1-100%)</label>
                     <br></br>
-                    <input type="number" name="rm" step="0.01" min="0" max="1" value={props.getState('rm')} onChange={props.handleChange}/>
+                    <input type="number" name="rm" step="0.1" min="0" max="100" value={props.getState('rm')} onChange={props.handleChange}/>
                 </div>
             </Row>
             <Row className="justify-content-center">
-                <button onClick={() => {fetchEqualityCost(props.getState('rf'),props.getState('beta'),props.getState('rm')); props.next();}}>
+                <button onClick={() => {fetchEqualityCost(props.getState('rf')/100,props.getState('beta')/100,props.getState('rm')/100); props.next();}}>
                     Next
                 </button>
             </Row>
