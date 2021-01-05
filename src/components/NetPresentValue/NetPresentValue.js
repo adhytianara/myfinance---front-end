@@ -51,16 +51,21 @@ function InternalRateReturn() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
-        console.log(opts["project_cost"]);
         if (data["body"] === null) {
-          setProfit("Please Fill in All Forms");
+          handleSetProfit("Please Fill in All Forms");
         } else {
           countProfit(opts["project_cost"], data["body"]);
-          setNvp(data["body"]);
-          console.log(data["body"]);
+          handleSetNvp(data["body"]);
         }
       });
+  }
+
+  function handleSetNvp(data) {
+    setNvp(data);
+  }
+
+  function handleSetProfit(data) {
+    setProfit(data);
   }
 
   function countProfit(cost, npv) {
