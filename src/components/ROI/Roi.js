@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -19,36 +19,41 @@ function ROI() {
         console.log(data);
         data["originalPrice"] = parseFloat(data["originalPrice"]);
         data["currentPrice"] = parseFloat(data["currentPrice"]);
-        // console.log(JSON.stringify({ body: JSON.stringify(data) }));
-        console.log(data["originalPrice"]);
-        console.log(data["currentPrice"]);
-        console.log();
-        countROI(data,startDate,currentDate);
-    }
-
-    function countROI(data,startDate,currentDate){
+        
         const one_day = 1000 * 60 * 60 * 24 ;
         var days = (currentDate.getTime()-startDate.getTime())/one_day ;
         days = days.toFixed(0); 
-        
-        var roi = (data["currentPrice"] - data["originalPrice"])/ data["originalPrice"] * 100
-        var annualizedRoi = (((data["currentPrice"]/data["originalPrice"])**(1/(days/365)))-1) * 100
+    
+        fetchRoi(data["originalPrice"],data["currentPrice"],days, returnOfInvestment(data["originalPrice"], data["currentPrice"]));
+    }
 
-        if(Number.isNaN(roi) || Number.isNaN(annualizedRoi)){
-            setProfit("Please Fill in All Forms");
-        } else {
-            setRoi(roi)
-            if(!isFinite(annualizedRoi)){
-                annualizedRoi = "Your Annualized ROI is too High. You get much profit from this"
-            }
-            setAnnualizedRoi(annualizedRoi)
-            
-            if (roi >0 || annualizedRoi > 0){
-                setProfit(<Profit />);
-            } else {
-                setProfit(<Loss />);
-            }
-        }
+    function returnOfInvestment(original,current){
+        return (current-original)/original * 100
+    }
+    
+    function fetchRoi(original, current, days, roi) {
+        fetch('https://1i5zak2pm3.execute-api.us-east-1.amazonaws.com/getroi/getroi?original='+original+'&current='+current +'&days='+days)
+            .then(response => {
+                console.log(response)
+                return response.json();
+            })
+            .then(result => {
+                setRoi(roi)
+                    console.log(result)
+                    if(result == null){
+                        result = "Your Annualized ROI is too High. You get much profit from this"
+                    }
+                    setAnnualizedRoi(result)
+                    
+                    if (roi >0 || result > 0){
+                        setProfit(<Profit />);
+                    } else {
+                        setProfit(<Loss />);
+                    }
+            })
+            .catch(e => {
+                setProfit("Please Fill in All Forms");
+            })
     }
 
     return(
@@ -93,7 +98,7 @@ function ROI() {
                 </Row>
                 <h2 className="result">{profit}</h2>
                 <h2 className="result">Your ROI : {roi} %</h2>
-                <h2 className="result">Your Annualized ROI : {annualizedRoi} %</h2>
+                <h2 className="result">Your Annualized ROI : {annualizedRoi} </h2>
             </form>
         </div>
     );
